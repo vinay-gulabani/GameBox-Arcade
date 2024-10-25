@@ -1,0 +1,70 @@
+body {
+  background-image: url("scene.jpg");
+  background-size: contain;
+}
+
+h1,
+h3 {
+  font-family: "Press Start 2P", cursive;
+  font-weight: normal;
+  color: white;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.gaming {
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.options {
+  display: inline-block;
+  position: absolute;
+  margin: 10px;
+}
+
+.arcade {
+  width: 385px;
+}
+video {
+  width: 250px;
+  position: absolute;
+  top: 135px;
+  left: 67px;
+  border-radius: 21px;
+}
+
+progress {
+  position: absolute;
+  top: 3px;
+  height: 48px;
+  left: 37px;
+  width: 300px;
+}
+
+
+.level {
+  transition-duration: 0.4s;
+  padding: 16px 32px;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  
+  
+}
+
+.level:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
