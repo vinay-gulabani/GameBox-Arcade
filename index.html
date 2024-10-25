@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Video Player</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1 id="video-title">Super Mario Bros</h1>
+
+    <div class="gaming">
+      <img class="arcade" src="gamemachine.png" />
+      <video src="stage1-2.mp4"></video>
+      <progress max="100"></progress>
+      <div class="options">
+        <h3>The GamePlay</h3>
+        <iframe
+          width="350"
+          height="200"
+          src="https://www.youtube.com/embed/rLl9XBg7wSs?si=cIwhqkvu9NRuV7pi"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+
+        <h3>Levels</h3>
+        <button class="level" id="1-1">Level 1-1</button>
+
+        <button class="level" id="1-2">Level 1-2</button>
+
+        <button class="level" id="4-1">Level 2-4</button>
+      </div>
+    </div>
+
+    <script>
+           function showProgress() {
+             var myVideo = $("video")[0];
+             var time = myVideo.currentTime;
+             var duration = myVideo.duration;
+             var percentage = (time / duration) * 100;
+             var progress = Math.round(percentage);
+
+             $("progress").val(progress);
+           }
+           $("video").on("timeupdate", showProgress);
+
+           function playPause() {
+             var myVideo = $("video")[0];
+
+             if (myVideo.paused) {
+               myVideo.play();
+             } else {
+               myVideo.pause();
+             }
+           }
+
+           $("video").click(playPause);
+
+           function changeVideo(eventObj){
+             var clicked = eventObj.currentTarget;
+             var id = $(clicked).attr('id')
+
+             if(id == '1-1') {
+                 $('video').attr('src', 'stage1-1.mp4');
+               } else if (id == '1-2') {
+                 $('video').attr('src', 'stage1-2.mp4');
+               } else if(id == '4-1'){
+                 $('video').attr('src', 'stage4-1.mp4');
+               }
+           $('video')[0].play()
+           }
+      
+      $('.level').click(changeVideo);
+
+    </script>
+  </body>
+</html>
